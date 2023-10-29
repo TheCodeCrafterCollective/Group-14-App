@@ -65,8 +65,8 @@ list second screen here]
 
 ## Wireframes
 
-[Add picture of your hand sketched wireframes in this section]
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
+![Group 14 Wireframe](https://github.com/TheCodeCrafterCollective/Group-14-App/assets/105520585/7b45aff9-e1b5-42c1-97ff-6b3ede4b63d8)
+
 
 ### [BONUS] Digital Wireframes & Mockups
 
