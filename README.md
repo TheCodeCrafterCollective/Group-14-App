@@ -11,7 +11,7 @@
 
 ### Description
 
-[Description of your app]
+This app allows users to view news stories in a convienent, engaging format. 
 
 ### App Evaluation
 
@@ -29,39 +29,76 @@
 
 **Required Must-have Stories**
 
-* [fill in your required user stories here]
-* ...
+* User can view different News Outlets
+* User can click a news story to view more detailed information
+* User can click images to view individual news stories
+* User can enter text to search for news by keywords
+* User can view news stories that relate to their search keywords
+* User can view a collection of news stories by category
+	
+
 
 **Optional Nice-to-have Stories**
 
-* [fill in your required user stories here]
-* ...
+* User can see recommended news stories based on their viewing history
+* User can apply and save filters to customize their news feed
+* User can select hyperlink to the news story source
 
 ### 2. Screen Archetypes
 
-- [ ] [list first screen here]
-* [list associated required story here]
-* ...
-list second screen here]
-* [list associated required story here]
-* ...
+- [1] Home Page
+  * User can view the top news
+  * USer can view different News Outlets
+  * User can click a news story to view more detailed informatoin
+  
+- [2] Search Page
+  * User can enter text to search for news by keywords
+
+- [3] Individual Result Page
+  * User can view detailed information about a news story
+  * User can select hyperlink to the news story source
+
+- [4] Search Result Page
+* User can view news stories that relate to their search keywords
+* User can click a news story to view more detailed information
+
+-[5] Category View Page
+* User can view a collection of news stories by category
+* User can click a news story to view more detailed information
+    
+  
 
 ### 3. Navigation
 
 **Tab Navigation** (Tab to Screen)
 
-* [fill out your first tab]
-* [fill out your second tab]
-* [fill out your third tab]
+* Home 
+* Trending
+* Science
+* Finance
+* Sports
+
 
 **Flow Navigation** (Screen to Screen)
 
-- [ ] [list first screen here]
-* [list screen navigation here]
-* ...
-- [ ] [list second screen here]
-* [list screen navigation here]
-* ...
+- [1] Home Page
+    * -> Search Page
+    * -> Individual Result Page
+  
+- [2] Search Page
+    * -> Home Page
+    * -> Search Result Page
+  
+- [3] Individual Result Page
+  * -> Home Page
+    
+- [4] Search Result Page
+  * -> Home Page
+  * -> Individual Result Page
+    
+- [5] Category View Page
+  * -> Home Page
+  * -> Individual Result Page
 
 ## Wireframes
 
