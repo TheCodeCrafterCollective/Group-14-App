@@ -7,27 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4360A3E12AF4813200DC1F0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4360A3E02AF4813200DC1F0F /* AppDelegate.swift */; };
-		4360A3E32AF4813200DC1F0F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4360A3E22AF4813200DC1F0F /* SceneDelegate.swift */; };
-		4360A3E52AF4813200DC1F0F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4360A3E42AF4813200DC1F0F /* ViewController.swift */; };
-		4360A3E82AF4813200DC1F0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4360A3E62AF4813200DC1F0F /* Main.storyboard */; };
-		4360A3EA2AF4813300DC1F0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4360A3E92AF4813300DC1F0F /* Assets.xcassets */; };
-		4360A3ED2AF4813300DC1F0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4360A3EB2AF4813300DC1F0F /* LaunchScreen.storyboard */; };
+		4360A4012AF596E600DC1F0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4360A4002AF596E600DC1F0F /* AppDelegate.swift */; };
+		4360A4032AF596E600DC1F0F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4360A4022AF596E600DC1F0F /* SceneDelegate.swift */; };
+		4360A4052AF596E600DC1F0F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4360A4042AF596E600DC1F0F /* ViewController.swift */; };
+		4360A4082AF596E600DC1F0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4360A4062AF596E600DC1F0F /* Main.storyboard */; };
+		4360A40A2AF596E800DC1F0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4360A4092AF596E800DC1F0F /* Assets.xcassets */; };
+		4360A40D2AF596E800DC1F0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4360A40B2AF596E800DC1F0F /* LaunchScreen.storyboard */; };
+		4360A4152AF5996E00DC1F0F /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4360A4142AF5996E00DC1F0F /* APICaller.swift */; };
+		4360A4172AF5A38800DC1F0F /* NexaNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4360A4162AF5A38800DC1F0F /* NexaNewsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4360A3DD2AF4813200DC1F0F /* NexaNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NexaNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4360A3E02AF4813200DC1F0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4360A3E22AF4813200DC1F0F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4360A3E42AF4813200DC1F0F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4360A3E72AF4813200DC1F0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4360A3E92AF4813300DC1F0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4360A3EC2AF4813300DC1F0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		4360A3EE2AF4813300DC1F0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4360A3FD2AF596E600DC1F0F /* NexaNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NexaNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4360A4002AF596E600DC1F0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4360A4022AF596E600DC1F0F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		4360A4042AF596E600DC1F0F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4360A4072AF596E600DC1F0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4360A4092AF596E800DC1F0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4360A40C2AF596E800DC1F0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4360A40E2AF596E800DC1F0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4360A4142AF5996E00DC1F0F /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		4360A4162AF5A38800DC1F0F /* NexaNewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NexaNewsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4360A3DA2AF4813200DC1F0F /* Frameworks */ = {
+		4360A3FA2AF596E600DC1F0F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -37,32 +41,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4360A3D42AF4813200DC1F0F = {
+		4360A3F42AF596E600DC1F0F = {
 			isa = PBXGroup;
 			children = (
-				4360A3DF2AF4813200DC1F0F /* NexaNews */,
-				4360A3DE2AF4813200DC1F0F /* Products */,
+				4360A3FF2AF596E600DC1F0F /* NexaNews */,
+				4360A3FE2AF596E600DC1F0F /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		4360A3DE2AF4813200DC1F0F /* Products */ = {
+		4360A3FE2AF596E600DC1F0F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4360A3DD2AF4813200DC1F0F /* NexaNews.app */,
+				4360A3FD2AF596E600DC1F0F /* NexaNews.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4360A3DF2AF4813200DC1F0F /* NexaNews */ = {
+		4360A3FF2AF596E600DC1F0F /* NexaNews */ = {
 			isa = PBXGroup;
 			children = (
-				4360A3E02AF4813200DC1F0F /* AppDelegate.swift */,
-				4360A3E22AF4813200DC1F0F /* SceneDelegate.swift */,
-				4360A3E42AF4813200DC1F0F /* ViewController.swift */,
-				4360A3E62AF4813200DC1F0F /* Main.storyboard */,
-				4360A3E92AF4813300DC1F0F /* Assets.xcassets */,
-				4360A3EB2AF4813300DC1F0F /* LaunchScreen.storyboard */,
-				4360A3EE2AF4813300DC1F0F /* Info.plist */,
+				4360A4002AF596E600DC1F0F /* AppDelegate.swift */,
+				4360A4022AF596E600DC1F0F /* SceneDelegate.swift */,
+				4360A4042AF596E600DC1F0F /* ViewController.swift */,
+				4360A4062AF596E600DC1F0F /* Main.storyboard */,
+				4360A4092AF596E800DC1F0F /* Assets.xcassets */,
+				4360A40B2AF596E800DC1F0F /* LaunchScreen.storyboard */,
+				4360A40E2AF596E800DC1F0F /* Info.plist */,
+				4360A4142AF5996E00DC1F0F /* APICaller.swift */,
+				4360A4162AF5A38800DC1F0F /* NexaNewsTableViewCell.swift */,
 			);
 			path = NexaNews;
 			sourceTree = "<group>";
@@ -70,13 +76,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4360A3DC2AF4813200DC1F0F /* NexaNews */ = {
+		4360A3FC2AF596E600DC1F0F /* NexaNews */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4360A3F12AF4813300DC1F0F /* Build configuration list for PBXNativeTarget "NexaNews" */;
+			buildConfigurationList = 4360A4112AF596E800DC1F0F /* Build configuration list for PBXNativeTarget "NexaNews" */;
 			buildPhases = (
-				4360A3D92AF4813200DC1F0F /* Sources */,
-				4360A3DA2AF4813200DC1F0F /* Frameworks */,
-				4360A3DB2AF4813200DC1F0F /* Resources */,
+				4360A3F92AF596E600DC1F0F /* Sources */,
+				4360A3FA2AF596E600DC1F0F /* Frameworks */,
+				4360A3FB2AF596E600DC1F0F /* Resources */,
 			);
 			buildRules = (
 			);
@@ -84,25 +90,25 @@
 			);
 			name = NexaNews;
 			productName = NexaNews;
-			productReference = 4360A3DD2AF4813200DC1F0F /* NexaNews.app */;
+			productReference = 4360A3FD2AF596E600DC1F0F /* NexaNews.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		4360A3D52AF4813200DC1F0F /* Project object */ = {
+		4360A3F52AF596E600DC1F0F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
-					4360A3DC2AF4813200DC1F0F = {
+					4360A3FC2AF596E600DC1F0F = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
 				};
 			};
-			buildConfigurationList = 4360A3D82AF4813200DC1F0F /* Build configuration list for PBXProject "NexaNews" */;
+			buildConfigurationList = 4360A3F82AF596E600DC1F0F /* Build configuration list for PBXProject "NexaNews" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -110,55 +116,57 @@
 				en,
 				Base,
 			);
-			mainGroup = 4360A3D42AF4813200DC1F0F;
-			productRefGroup = 4360A3DE2AF4813200DC1F0F /* Products */;
+			mainGroup = 4360A3F42AF596E600DC1F0F;
+			productRefGroup = 4360A3FE2AF596E600DC1F0F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4360A3DC2AF4813200DC1F0F /* NexaNews */,
+				4360A3FC2AF596E600DC1F0F /* NexaNews */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		4360A3DB2AF4813200DC1F0F /* Resources */ = {
+		4360A3FB2AF596E600DC1F0F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4360A3ED2AF4813300DC1F0F /* LaunchScreen.storyboard in Resources */,
-				4360A3EA2AF4813300DC1F0F /* Assets.xcassets in Resources */,
-				4360A3E82AF4813200DC1F0F /* Main.storyboard in Resources */,
+				4360A40D2AF596E800DC1F0F /* LaunchScreen.storyboard in Resources */,
+				4360A40A2AF596E800DC1F0F /* Assets.xcassets in Resources */,
+				4360A4082AF596E600DC1F0F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4360A3D92AF4813200DC1F0F /* Sources */ = {
+		4360A3F92AF596E600DC1F0F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4360A3E52AF4813200DC1F0F /* ViewController.swift in Sources */,
-				4360A3E12AF4813200DC1F0F /* AppDelegate.swift in Sources */,
-				4360A3E32AF4813200DC1F0F /* SceneDelegate.swift in Sources */,
+				4360A4052AF596E600DC1F0F /* ViewController.swift in Sources */,
+				4360A4012AF596E600DC1F0F /* AppDelegate.swift in Sources */,
+				4360A4032AF596E600DC1F0F /* SceneDelegate.swift in Sources */,
+				4360A4172AF5A38800DC1F0F /* NexaNewsTableViewCell.swift in Sources */,
+				4360A4152AF5996E00DC1F0F /* APICaller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4360A3E62AF4813200DC1F0F /* Main.storyboard */ = {
+		4360A4062AF596E600DC1F0F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4360A3E72AF4813200DC1F0F /* Base */,
+				4360A4072AF596E600DC1F0F /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		4360A3EB2AF4813300DC1F0F /* LaunchScreen.storyboard */ = {
+		4360A40B2AF596E800DC1F0F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4360A3EC2AF4813300DC1F0F /* Base */,
+				4360A40C2AF596E800DC1F0F /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -166,7 +174,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		4360A3EF2AF4813300DC1F0F /* Debug */ = {
+		4360A40F2AF596E800DC1F0F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -229,7 +237,7 @@
 			};
 			name = Debug;
 		};
-		4360A3F02AF4813300DC1F0F /* Release */ = {
+		4360A4102AF596E800DC1F0F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -285,7 +293,7 @@
 			};
 			name = Release;
 		};
-		4360A3F22AF4813300DC1F0F /* Debug */ = {
+		4360A4122AF596E800DC1F0F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -312,7 +320,7 @@
 			};
 			name = Debug;
 		};
-		4360A3F32AF4813300DC1F0F /* Release */ = {
+		4360A4132AF596E800DC1F0F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -342,25 +350,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4360A3D82AF4813200DC1F0F /* Build configuration list for PBXProject "NexaNews" */ = {
+		4360A3F82AF596E600DC1F0F /* Build configuration list for PBXProject "NexaNews" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4360A3EF2AF4813300DC1F0F /* Debug */,
-				4360A3F02AF4813300DC1F0F /* Release */,
+				4360A40F2AF596E800DC1F0F /* Debug */,
+				4360A4102AF596E800DC1F0F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4360A3F12AF4813300DC1F0F /* Build configuration list for PBXNativeTarget "NexaNews" */ = {
+		4360A4112AF596E800DC1F0F /* Build configuration list for PBXNativeTarget "NexaNews" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4360A3F22AF4813300DC1F0F /* Debug */,
-				4360A3F32AF4813300DC1F0F /* Release */,
+				4360A4122AF596E800DC1F0F /* Debug */,
+				4360A4132AF596E800DC1F0F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 4360A3D52AF4813200DC1F0F /* Project object */;
+	rootObject = 4360A3F52AF596E600DC1F0F /* Project object */;
 }

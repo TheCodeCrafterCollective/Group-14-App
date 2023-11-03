@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  NexaNews
 //
-//  Created by Jesse Hough on 11/2/23.
+//  Created by Jesse Hough on 11/3/23.
 //
 
 import UIKit
