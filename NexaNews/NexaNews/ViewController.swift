@@ -1,15 +1,8 @@
-//
-//  ViewController.swift
-//  NexaNews
-//
-//  Created by Jesse Hough on 11/3/23.
-//
-
 import UIKit
 import SafariServices
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
-    
+
     private let tableView: UITableView = {
         let table = UITableView()
         table.register(NexaNewsTableViewCell.self, forCellReuseIdentifier: NexaNewsTableViewCell.identifier)
@@ -17,10 +10,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }()
 
     private let searchVC = UISearchController(searchResultsController: nil)
-    
+
     private var viewModels = [NexaNewsTableViewModel]()
     private var articles = [Article]()
-    
+
+    private let toolbar: UIToolbar = {
+        let toolbar = UIToolbar()
+        // Set a black background color
+        toolbar.barTintColor = .black
+        return toolbar
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "NexaNews"
@@ -28,21 +28,35 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.delegate = self
         tableView.dataSource = self
         view.backgroundColor = .systemBackground
-        
-        getTopStories()
+
+        // Add the "Home" button to the toolbar
+        let homeButtonStack = createHomeButtonStack()
+        let homeButtonBarItem = UIBarButtonItem(customView: homeButtonStack)
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+
+        toolbar.items = [homeButtonBarItem, flexibleSpace] // Add flexible space item before the "Home" button
+
+        // Set the height of the bottom toolbar here
+        let toolbarHeight: CGFloat = 100.0 // Adjust this value as needed
+        toolbar.frame = CGRect(x: 0, y: view.frame.height - toolbarHeight, width: view.frame.width, height: toolbarHeight)
+
+        // Add the bottom toolbar to the view
+        view.addSubview(toolbar)
+
         createSearchBar()
+        getTopStories()
     }
-    
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
     }
-    
+
     private func createSearchBar() {
         navigationItem.searchController = searchVC
         searchVC.searchBar.delegate = self
     }
-    
+
     private func getTopStories() {
         APICaller.shared.getTopStories { [weak self] result in
             switch result {
@@ -51,7 +65,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self?.viewModels = articles.compactMap({
                     NexaNewsTableViewModel(title: $0.title, subtitle: $0.description ?? "No Description", imageURL: URL(string: $0.urlToImage ?? ""))
                 })
-                
+
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                 }
@@ -62,11 +76,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     // Table
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModels.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: NexaNewsTableViewCell.identifier, for: indexPath) as? NexaNewsTableViewCell else {
             fatalError()
@@ -74,30 +88,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.configure(with: viewModels[indexPath.row])
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let article = articles[indexPath.row]
-        
+
         guard let url = URL(string: article.url ?? "") else {
             return
         }
-        
+
         let vc = SFSafariViewController(url: url)
         present(vc, animated: true)
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
-    
+
     // Search
-    
+
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text, !text.isEmpty else {
             return
         }
-        
+
         APICaller.shared.search(with: text) { [weak self] result in
             switch result {
             case .success(let articles):
@@ -105,7 +119,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self?.viewModels = articles.compactMap({
                     NexaNewsTableViewModel(title: $0.title, subtitle: $0.description ?? "No Description", imageURL: URL(string: $0.urlToImage ?? ""))
                 })
-                
+
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                     self?.searchVC.dismiss(animated: true, completion: nil)
@@ -115,5 +129,35 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
     }
-}
 
+    // Create a custom stack view for the "Home" button
+    private func createHomeButtonStack() -> UIStackView {
+        let homeButtonSize: CGFloat = 30.0 // Adjust icon size as needed
+        let homeButton = UIButton(type: .system)
+        homeButton.frame = CGRect(x: 0, y: 0, width: homeButtonSize, height: homeButtonSize)
+        homeButton.setImage(UIImage(systemName: "house", withConfiguration: UIImage.SymbolConfiguration(pointSize: homeButtonSize, weight: .bold)), for: .normal)
+        homeButton.tintColor = .white // Set icon color to white
+        homeButton.addTarget(self, action: #selector(homeButtonTapped), for: .touchUpInside)
+
+        let homeLabel = UILabel()
+        homeLabel.text = "Home"
+        homeLabel.textColor = .white
+        homeLabel.font = .systemFont(ofSize: 14.0) // Adjust label font size as needed
+
+        let stackView = UIStackView(arrangedSubviews: [homeButton, homeLabel])
+        stackView.axis = .vertical
+        stackView.alignment = .center
+
+        return stackView
+    }
+
+    // Add this method to reset the view
+    @objc private func homeButtonTapped() {
+        resetView()
+    }
+
+    // Add this method to reset the view
+    private func resetView() {
+        getTopStories()
+    }
+}
