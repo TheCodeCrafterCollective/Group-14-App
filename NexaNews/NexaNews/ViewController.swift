@@ -41,6 +41,49 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let barButton = UIBarButtonItem(customView: stackView)
         return barButton
     }()
+    
+    private let sportsButton: UIBarButtonItem = {
+        let buttonSize: CGFloat = 30.0
+        let button = UIButton(type: .system)
+        button.frame = CGRect(x: 0, y: 0, width: buttonSize, height: buttonSize)
+        button.setImage(UIImage(systemName: "sportscourt", withConfiguration: UIImage.SymbolConfiguration(pointSize: buttonSize, weight: .regular)), for: .normal)
+        button.tintColor = .white
+        button.addTarget(self, action: #selector(sportsButtonTapped), for: .touchUpInside)
+
+        let label = UILabel()
+        label.text = "Sports"
+        label.textColor = .white
+        label.font = .systemFont(ofSize: 14.0)
+
+        let stackView = UIStackView(arrangedSubviews: [button, label])
+        stackView.axis = .vertical
+        stackView.alignment = .center
+
+        let barButton = UIBarButtonItem(customView: stackView)
+        return barButton
+    }()
+    
+    private let scienceButton: UIBarButtonItem = {
+        let buttonSize: CGFloat = 30.0
+        let button = UIButton(type: .system)
+        button.frame = CGRect(x: 0, y: 0, width: buttonSize, height: buttonSize)
+        button.setImage(UIImage(systemName: "flask", withConfiguration: UIImage.SymbolConfiguration(pointSize: buttonSize, weight: .regular)), for: .normal)
+        button.tintColor = .white
+        button.addTarget(self, action: #selector(scienceButtonTapped), for: .touchUpInside)
+
+        let label = UILabel()
+        label.text = "Science"
+        label.textColor = .white
+        label.font = .systemFont(ofSize: 14.0)
+
+        let stackView = UIStackView(arrangedSubviews: [button, label])
+        stackView.axis = .vertical
+        stackView.alignment = .center
+
+        let barButton = UIBarButtonItem(customView: stackView)
+        return barButton
+    }()
+
 
     // Add this property to store the original title
         private let originalTitle = "NexaNews"
@@ -58,7 +101,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let homeButtonBarItem = UIBarButtonItem(customView: homeButtonStack)
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
 
-        toolbar.items = [homeButtonBarItem, flexibleSpace, technologyButton] // Add the technology button to the toolbar
+        toolbar.items = [homeButtonBarItem, flexibleSpace, sportsButton, flexibleSpace, technologyButton, flexibleSpace, scienceButton] // Add the technology button to the toolbar
 
         // Set the height of the bottom toolbar here
         let toolbarHeight: CGFloat = 100.0 // Adjust this value as needed
@@ -192,13 +235,58 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     // Add this function to fetch technology news
     @objc private func technologyButtonTapped() {
-            fetchTechnologyNews()
-            title = "Technology" // Set the title to "Technology" when the button is tapped
+        fetchTechnologyNews()
+        title = "Technology" // Set the title to "Technology" when the button is tapped
         }
+    @objc private func sportsButtonTapped() {
+        fetchSportsNews()
+        title = "Sports" // Set the title to "Sports" when the button is tapped
+    }
+    
+    @objc private func scienceButtonTapped() {
+        fetchScienceNews()
+        title = "Science" // Set the title to "Science" when the button is tapped
+    }
 
     // Add this function to fetch technology news
     private func fetchTechnologyNews() {
         APICaller.shared.getTechnologyNews { [weak self] result in
+            switch result {
+            case .success(let articles):
+                self?.articles = articles
+                self?.viewModels = articles.compactMap({
+                    NexaNewsTableViewModel(title: $0.title, subtitle: $0.description ?? "No Description", imageURL: URL(string: $0.urlToImage ?? ""))
+                })
+
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    private func fetchSportsNews() {
+        APICaller.shared.getSportsNews { [weak self] result in
+            switch result {
+            case .success(let articles):
+                self?.articles = articles
+                self?.viewModels = articles.compactMap({
+                    NexaNewsTableViewModel(title: $0.title, subtitle: $0.description ?? "No Description", imageURL: URL(string: $0.urlToImage ?? ""))
+                })
+
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    private func fetchScienceNews() {
+        APICaller.shared.getScienceNews { [weak self] result in
             switch result {
             case .success(let articles):
                 self?.articles = articles

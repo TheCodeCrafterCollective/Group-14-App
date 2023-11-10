@@ -14,6 +14,8 @@ final class APICaller {
         static let topHeadlinesURL = URL(string: "https://newsapi.org/v2/top-headlines?country=us&apiKey=8722f03b48cc48a5b7e887b0e62cbb46")
         static let searchUrlString = "https://newsapi.org/v2/everything?sortedBy=popularity&apiKey=8722f03b48cc48a5b7e887b0e62cbb46&q="
         static let technologyNewsURL = URL(string: "https://newsapi.org/v2/everything?q=Technology&apiKey=8722f03b48cc48a5b7e887b0e62cbb46")
+        static let sportsNewsURL = URL(string: "https://newsapi.org/v2/everything?q=Sports&apiKey=8722f03b48cc48a5b7e887b0e62cbb46")
+        static let scienceNewsURL = URL(string: "https://newsapi.org/v2/everything?q=Science&apiKey=8722f03b48cc48a5b7e887b0e62cbb46")
 
     }
     
@@ -77,6 +79,48 @@ final class APICaller {
     
     public func getTechnologyNews(completion: @escaping (Result<[Article], Error>) -> Void) {
         guard let url = Constants.technologyNewsURL else {
+            return
+        }
+
+        let task = URLSession.shared.dataTask(with: url) { data, _, error in
+            if let error = error {
+                completion(.failure(error))
+            } else if let data = data {
+                do {
+                    let result = try JSONDecoder().decode(APIResponse.self, from: data)
+                    completion(.success(result.articles))
+                } catch {
+                    completion(.failure(error))
+                }
+            }
+        }
+
+        task.resume()
+    }
+    
+    public func getSportsNews(completion: @escaping (Result<[Article], Error>) -> Void) {
+        guard let url = Constants.sportsNewsURL else {
+            return
+        }
+
+        let task = URLSession.shared.dataTask(with: url) { data, _, error in
+            if let error = error {
+                completion(.failure(error))
+            } else if let data = data {
+                do {
+                    let result = try JSONDecoder().decode(APIResponse.self, from: data)
+                    completion(.success(result.articles))
+                } catch {
+                    completion(.failure(error))
+                }
+            }
+        }
+
+        task.resume()
+    }
+    
+    public func getScienceNews(completion: @escaping (Result<[Article], Error>) -> Void) {
+        guard let url = Constants.scienceNewsURL else {
             return
         }
 
