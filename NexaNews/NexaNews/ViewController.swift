@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     private var viewModels = [NexaNewsTableViewModel]()
     private var articles = [Article]()
+    private var currentView = "Top Stories"
 
     private let toolbar: UIToolbar = {
         let toolbar = UIToolbar()
@@ -109,9 +110,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         // Add the bottom toolbar to the view
         view.addSubview(toolbar)
+        
+        // Refresh Controller
+        configureRefreshControl()
 
         createSearchBar()
         getTopStories()
+        
+        currentView = "Top Stories"
     }
     
     private func resetTitle() {
@@ -221,6 +227,42 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         return stackView
     }
+    
+    
+    // Refresh Controller to reload selected view
+    func configureRefreshControl(){
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
+    }
+    
+    @objc func handleRefreshControl() {
+        // Update content
+        refreshView()
+        
+        // Dismiss refresh control
+        DispatchQueue.main.async{
+            self.tableView.refreshControl?.endRefreshing()
+        }
+    }
+    
+    
+    // Reload source when table view is refreshed
+    func refreshView(){
+        
+        switch currentView {
+            
+        case "Technology News":
+            fetchTechnologyNews()
+        case "Sports News":
+            fetchSportsNews()
+        case "Science News":
+            fetchScienceNews()
+            
+            
+        default:
+            getTopStories()
+        }
+    }
 
     // Add this method to reset the view
     @objc private func homeButtonTapped() {
@@ -253,6 +295,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         APICaller.shared.getTechnologyNews { [weak self] result in
             switch result {
             case .success(let articles):
+                self?.currentView = "Technology News"
                 self?.articles = articles
                 self?.viewModels = articles.compactMap({
                     NexaNewsTableViewModel(title: $0.title, subtitle: $0.description ?? "No Description", imageURL: URL(string: $0.urlToImage ?? ""))
@@ -271,6 +314,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         APICaller.shared.getSportsNews { [weak self] result in
             switch result {
             case .success(let articles):
+                self?.currentView = "Sports News"
                 self?.articles = articles
                 self?.viewModels = articles.compactMap({
                     NexaNewsTableViewModel(title: $0.title, subtitle: $0.description ?? "No Description", imageURL: URL(string: $0.urlToImage ?? ""))
@@ -289,6 +333,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         APICaller.shared.getScienceNews { [weak self] result in
             switch result {
             case .success(let articles):
+                self?.currentView = "Science News"
                 self?.articles = articles
                 self?.viewModels = articles.compactMap({
                     NexaNewsTableViewModel(title: $0.title, subtitle: $0.description ?? "No Description", imageURL: URL(string: $0.urlToImage ?? ""))
