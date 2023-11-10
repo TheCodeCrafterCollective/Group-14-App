@@ -21,9 +21,33 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return toolbar
     }()
 
+    private let technologyButton: UIBarButtonItem = {
+        let buttonSize: CGFloat = 30.0
+        let button = UIButton(type: .system)
+        button.frame = CGRect(x: 0, y: 0, width: buttonSize, height: buttonSize)
+        button.setImage(UIImage(systemName: "laptopcomputer", withConfiguration: UIImage.SymbolConfiguration(pointSize: buttonSize, weight: .regular)), for: .normal)
+        button.tintColor = .white
+        button.addTarget(self, action: #selector(technologyButtonTapped), for: .touchUpInside)
+
+        let label = UILabel()
+        label.text = "Tech"
+        label.textColor = .white
+        label.font = .systemFont(ofSize: 14.0)
+
+        let stackView = UIStackView(arrangedSubviews: [button, label])
+        stackView.axis = .vertical
+        stackView.alignment = .center
+
+        let barButton = UIBarButtonItem(customView: stackView)
+        return barButton
+    }()
+
+    // Add this property to store the original title
+        private let originalTitle = "NexaNews"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "NexaNews"
+        title = originalTitle // Set the initial title
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
@@ -34,7 +58,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let homeButtonBarItem = UIBarButtonItem(customView: homeButtonStack)
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
 
-        toolbar.items = [homeButtonBarItem, flexibleSpace] // Add flexible space item before the "Home" button
+        toolbar.items = [homeButtonBarItem, flexibleSpace, technologyButton] // Add the technology button to the toolbar
 
         // Set the height of the bottom toolbar here
         let toolbarHeight: CGFloat = 100.0 // Adjust this value as needed
@@ -46,6 +70,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         createSearchBar()
         getTopStories()
     }
+    
+    private func resetTitle() {
+            title = originalTitle
+        }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -135,7 +163,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let homeButtonSize: CGFloat = 30.0 // Adjust icon size as needed
         let homeButton = UIButton(type: .system)
         homeButton.frame = CGRect(x: 0, y: 0, width: homeButtonSize, height: homeButtonSize)
-        homeButton.setImage(UIImage(systemName: "house", withConfiguration: UIImage.SymbolConfiguration(pointSize: homeButtonSize, weight: .bold)), for: .normal)
+        homeButton.setImage(UIImage(systemName: "house", withConfiguration: UIImage.SymbolConfiguration(pointSize: homeButtonSize, weight: .regular)), for: .normal)
         homeButton.tintColor = .white // Set icon color to white
         homeButton.addTarget(self, action: #selector(homeButtonTapped), for: .touchUpInside)
 
@@ -153,11 +181,37 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     // Add this method to reset the view
     @objc private func homeButtonTapped() {
-        resetView()
-    }
+            resetTitle()
+            resetView()
+        }
 
     // Add this method to reset the view
     private func resetView() {
         getTopStories()
+    }
+
+    // Add this function to fetch technology news
+    @objc private func technologyButtonTapped() {
+            fetchTechnologyNews()
+            title = "Technology" // Set the title to "Technology" when the button is tapped
+        }
+
+    // Add this function to fetch technology news
+    private func fetchTechnologyNews() {
+        APICaller.shared.getTechnologyNews { [weak self] result in
+            switch result {
+            case .success(let articles):
+                self?.articles = articles
+                self?.viewModels = articles.compactMap({
+                    NexaNewsTableViewModel(title: $0.title, subtitle: $0.description ?? "No Description", imageURL: URL(string: $0.urlToImage ?? ""))
+                })
+
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }
