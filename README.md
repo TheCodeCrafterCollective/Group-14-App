@@ -40,11 +40,11 @@ While <b>NexaNews</b> currently focuses on news aggregation, its framework allow
 
 **Required Must-have Stories**
 
-* User can view a list of current news articles
-* User can search for specific news topics or keywords
-* User can select and view news based on categories
-* User can view a list of trending articles
-* User can refresh the news feed
+- [X] User can view a list of current news articles
+- [X] User can search for specific news topics or keywords
+- [X] User can select and view news based on categories
+- [X] User can view a list of trending articles
+- [X] User can refresh the news feed
 
 **Optional Nice-to-have Stories**
 
@@ -99,16 +99,102 @@ While <b>NexaNews</b> currently focuses on news aggregation, its framework allow
 
 ![Group 14 Wireframe](https://github.com/TheCodeCrafterCollective/Group-14-App/assets/105520585/7b45aff9-e1b5-42c1-97ff-6b3ede4b63d8)
 
-## Schema 
+## Progress Update Gifs
 
-[This section will be completed in Unit 9]
+<div>
+    <a href="https://www.loom.com/share/06dc28f8648847c582d6882a0e985f8d">
+      <p>November 5th 2023</p>
+    </a>
+    <a href="https://www.loom.com/share/06dc28f8648847c582d6882a0e985f8d">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/06dc28f8648847c582d6882a0e985f8d-with-play.gif">
+    </a>
+  </div>
+
+<div>
+    <a href="https://www.loom.com/share/2d387f57559348d49f80a757e3060c2e">
+      <p>November 12th 2023</p>
+    </a>
+    <a href="https://www.loom.com/share/2d387f57559348d49f80a757e3060c2e">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/2d387f57559348d49f80a757e3060c2e-with-play.gif">
+    </a>
+  </div>
+
+## Schema 
 
 ### Models
 
-[Add table of models]
+<table border="1">
+    <tr>
+        <th>Model Name</th>
+        <th>Properties</th>
+        <th>Data Types</th>
+        <th>Relationships</th>
+        <th>Conformance</th>
+    </tr>
+    <tr>
+        <td>APIResponse</td>
+        <td>- articles</td>
+        <td>- [Article]</td>
+        <td>- One-to-Many with Article</td>
+        <td>- Codable</td>
+    </tr>
+    <tr>
+        <td>Article</td>
+        <td>- source<br>- title<br>- description<br>- url<br>- urlToImage<br>- publishedAt</td>
+        <td>- Source<br>- String<br>- String?<br>- String?<br>- String?<br>- String</td>
+        <td>- One-to-One with Source</td>
+        <td>- Codable</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>- name</td>
+        <td>- String</td>
+        <td>- None</td>
+        <td>- Codable</td>
+    </tr>
+</table>
+
 
 ### Networking
 
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
+<h2>Networking</h2>
+
+<h3>Network Requests by Screen</h3>
+
+<ol>
+    <li>
+        <strong>Home Screen / Top Headlines</strong>
+        <ul>
+            <li>Fetches top headlines from the United States.</li>
+            <li>Endpoint: <code>GET https://newsapi.org/v2/top-headlines?country=us&apiKey=[API_KEY]</code></li>
+        </ul>
+    </li>
+    <li>
+        <strong>Search Screen</strong>
+        <ul>
+            <li>Allows users to search for news articles based on a query.</li>
+            <li>Endpoint: <code>GET https://newsapi.org/v2/everything?sortedBy=popularity&apiKey=[API_KEY]&q=[QUERY]</code></li>
+        </ul>
+    </li>
+    <li>
+        <strong>Technology News Screen</strong>
+        <ul>
+            <li>Displays the latest news articles about technology.</li>
+            <li>Endpoint: <code>GET https://newsapi.org/v2/everything?q=Technology&apiKey=[API_KEY]</code></li>
+        </ul>
+    </li>
+    <li>
+        <strong>Sports News Screen</strong>
+        <ul>
+            <li>Shows news articles related to sports.</li>
+            <li>Endpoint: <code>GET https://newsapi.org/v2/everything?q=Sports&apiKey=[API_KEY]</code></li>
+        </ul>
+    </li>
+    <li>
+        <strong>Science News Screen</strong>
+        <ul>
+            <li>Features news articles focusing on science.</li>
+            <li>Endpoint: <code>GET https://newsapi.org/v2/everything?q=Science&apiKey=[API_KEY]</code></li>
+        </ul>
+    </li>
+</ol>
