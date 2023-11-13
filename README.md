@@ -177,7 +177,7 @@ While <b>NexaNews</b> currently focuses on news aggregation, its framework allow
         <strong>Home Screen / Top Headlines</strong>
         <ul>
             <li>Fetches top headlines from the United States.</li>
-            <li>Endpoint: <code>GET https://newsapi.org/v2/top-headlines?country=us&apiKey=[API_KEY]</code></li>
+            <li>Endpoint: <code>GET https://newsapi.org/v2/top-headlines?country=[COUNTRY_KEY]&apiKey=[API_KEY]</code></li>
         </ul>
     </li>
     <li>
@@ -191,21 +191,21 @@ While <b>NexaNews</b> currently focuses on news aggregation, its framework allow
         <strong>Technology News Screen</strong>
         <ul>
             <li>Displays the latest news articles about technology.</li>
-            <li>Endpoint: <code>GET https://newsapi.org/v2/everything?q=Technology&apiKey=[API_KEY]</code></li>
+            <li>Endpoint: <code>GET https://newsapi.org/v2/top-headlines?country=[COUNTRY_KEY]&category=Technology&apiKey=[API_KEY]</code></li>
         </ul>
     </li>
     <li>
         <strong>Sports News Screen</strong>
         <ul>
             <li>Shows news articles related to sports.</li>
-            <li>Endpoint: <code>GET https://newsapi.org/v2/everything?q=Sports&apiKey=[API_KEY]</code></li>
+            <li>Endpoint: <code>GET https://newsapi.org/v2/top-headlines?country=[COUNTRY_KEY]&category=Sports&apiKey=[API_KEY]</code></li>
         </ul>
     </li>
     <li>
         <strong>Science News Screen</strong>
         <ul>
             <li>Features news articles focusing on science.</li>
-            <li>Endpoint: <code>GET https://newsapi.org/v2/everything?q=Science&apiKey=[API_KEY]</code></li>
+            <li>Endpoint: <code>GET https://newsapi.org/v2/top-headlines?country=[COUNTRY_KEY]&category=Science&apiKey=[API_KEY]</code></li>
         </ul>
     </li>
 </ol>
