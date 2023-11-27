@@ -56,6 +56,14 @@ While <b>NexaNews</b> currently focuses on news aggregation, its framework allow
 
 ### 2. Screen Archetypes
 
+* <b>Log-in Screen</b>
+  * User can enter their email
+  * User can enter their password
+  * User can tap on the "Log In" button to log in
+* <b>Sign-in Screen</b>
+  * User can enter their email
+  * User can enter their password
+  * User can tap on the "Sign up" button to sign up
 * <b>Home Screen</b>
   * User can view a list of icons for all news outlets in the app
   * User can view a list of popular news articles
