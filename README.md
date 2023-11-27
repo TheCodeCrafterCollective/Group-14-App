@@ -119,6 +119,33 @@ While <b>NexaNews</b> currently focuses on news aggregation, its framework allow
     </a>
   </div>
 
+## Demo Practice Video
+
+<div>
+    <a href="https://www.loom.com/share/2340ee7aa23144b985cf4f7d0087cc9c">
+      <p>November 12th 2023</p>
+    </a>
+    <a href="https://www.loom.com/share/2340ee7aa23144b985cf4f7d0087cc9c">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/2340ee7aa23144b985cf4f7d0087cc9c-with-play.gif">
+    </a>
+</div>
+
+
+## Demo Video
+<div>
+    <a href="https://drive.google.com/file/d/1jKVrOtLuAambhFBDdOSwZ16ebvljk9ox/view">
+      <p>November 12th 2023</p>
+    </a>
+    <a href="https://drive.google.com/file/d/1jKVrOtLuAambhFBDdOSwZ16ebvljk9ox/view">
+      <img style="max-width:300px;" src="https://giphy.com/gifs/7ZeH6t0dajzOem5uGB">
+    </a>
+</div>
+
+Demo Video Link: https://drive.google.com/file/d/1jKVrOtLuAambhFBDdOSwZ16ebvljk9ox/view
+
+
+
+
 ## Schema 
 
 ### Models
