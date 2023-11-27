@@ -45,6 +45,7 @@ While <b>NexaNews</b> currently focuses on news aggregation, its framework allow
 - [X] User can select and view news based on categories
 - [X] User can view a list of trending articles
 - [X] User can refresh the news feed
+- [X] User can log in or create an account
 
 **Optional Nice-to-have Stories**
 
@@ -60,7 +61,7 @@ While <b>NexaNews</b> currently focuses on news aggregation, its framework allow
   * User can enter their email
   * User can enter their password
   * User can tap on the "Log In" button to log in
-* <b>Sign-in Screen</b>
+* <b>Sign-up Screen</b>
   * User can enter their email
   * User can enter their password
   * User can tap on the "Sign up" button to sign up
