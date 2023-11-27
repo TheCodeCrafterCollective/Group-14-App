@@ -139,6 +139,10 @@ While <b>NexaNews</b> currently focuses on news aggregation, its framework allow
     </a>
 </div>
 
+## Demo Login-Signup 
+
+<a href="https://drive.google.com/file/d/1EmlWwhhE5OhJFk5wFy6R878R5u3vNbCn/view?usp=sharing" >
+
 
 ## Demo Video
 <div>
